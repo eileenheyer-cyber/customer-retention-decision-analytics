@@ -18,7 +18,7 @@ All tables link on `msno`, an anonymised user ID.
 | `train.csv` | 45 MB | 992,931 | Churn labels for subscriptions expiring in February 2017 |
 | `train_v2.csv` | 44 MB | 970,960 | Churn labels for subscriptions expiring in March 2017 |
 | `transactions.csv` | 1.6 GB | 21,547,746 | Payment, renewal and cancellation events, January 2015 to February 2017 |
-| `transactions_v2.csv` | 110 MB | 1,431,009 | Transactions for March 2017 |
+| `transactions_v2.csv` | 110 MB | 1,431,009 | Transactions mostly from March 2017 (75%), plus earlier dates back to 2015 |
 | `user_logs.csv` | 28 GB | 392,106,543 | Daily listening activity per user, 2015 to February 2017 |
 | `user_logs_v2.csv` | 1.3 GB | 18,396,507 | Daily listening activity for March 2017 |
 | `WSDMChurnLabeller.scala` | 7 KB | — | The organisers' code that defines the churn label |
