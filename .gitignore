@@ -49,6 +49,13 @@ tmp/
 temp/
 output/
 
+# --- Data files (KKBox competition data must not be redistributed) ---
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.7z
+
 # --- Large model artifacts ---
 models/*.pkl
 models/*.joblib
