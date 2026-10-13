@@ -1,4 +1,4 @@
-# NordHome Retention Analytics: From Prediction to Decision
+# Customer Retention Decision Analytics: From Churn Prediction to Profit-Optimal Targeting
 
 **Combining machine learning, experimentation, uplift modeling and business decision analytics to optimize customer retention.**
 
@@ -6,19 +6,21 @@
 
 ## Project Inspiration
 
-This project was inspired by concepts presented in *Data Science for Business* by Foster Provost and Tom Fawcett. In particular, the discussions on expected value, customer retention, and decision-focused analytics motivated the overall project design. While the implementation is my own, the project explores how these ideas can be applied to a practical retail analytics scenario using a synthetic dataset.
+This project was inspired by concepts presented in *Data Science for Business* by Foster Provost and Tom Fawcett. In particular, the discussions on expected value, customer retention, and decision-focused analytics motivated the overall project design. While the implementation is my own, the project explores how these ideas can be applied to real subscription data.
 
 ---
 
 ## Project Status
 
-**Planned / In Progress.** This repository currently contains the project proposal, documentation, and repository scaffolding only. No data analysis, modeling, or dashboard code has been implemented yet. See [docs/roadmap.md](docs/roadmap.md) for the current phase and progress checklist.
+**In Progress.** The KKBox dataset has been downloaded and loaded into PostgreSQL (see [data/README.md](data/README.md)). No data analysis, modeling, or dashboard code has been implemented yet. See [docs/roadmap.md](docs/roadmap.md) for the current phase and progress checklist.
 
 ---
 
 ## Business Context
 
-NordHome is a synthetic retail subscription business used as a portfolio case study. Like many subscription and recurring-purchase businesses, NordHome loses a portion of its customer base to churn every period. A common first response is to build a churn prediction model and offer a retention incentive (discount, loyalty credit, or service upgrade) to every customer flagged as high-risk.
+This project uses the **KKBox Churn Prediction Challenge** dataset (WSDM Cup 2018): real, anonymised data from KKBox, a music streaming subscription service in Taiwan. It covers about one million labelled subscribers, with member profiles, more than 21 million payment and renewal transactions, and 392 million daily listening logs from 2015 to 2017.
+
+Like every subscription business, KKBox loses part of its subscriber base each month: 6–9% of users whose subscription expired in early 2017 did not renew within 30 days. A common first response is to build a churn prediction model and offer a retention incentive (discount, loyalty credit, or service upgrade) to every customer flagged as high-risk.
 
 This project argues — and aims to demonstrate — that this common approach is incomplete. Knowing *who is likely to churn* is not the same as knowing *who will respond profitably to an intervention*. This project builds the analytical workflow needed to close that gap.
 
@@ -103,10 +105,17 @@ customer-retention-decision-analytics/
 │   ├── business_problem.md       # Business framing: targeting segments and decision logic
 │   ├── experiment_design.md      # Proposed A/B test design
 │   ├── methodology.md            # Planned analytical and statistical methods
+│   ├── data_dictionary.md        # Table and field definitions
+│   ├── simulation_assumptions.md # Assumptions for the simulated retention offer
 │   └── roadmap.md                # Phased task checklist and progress tracking
-├── data/                         # Data documentation (raw data not committed)
-├── sql/                          # SQL scripts for data extraction and transformation
-├── notebooks/                    # Analysis notebooks
+├── data/                         # Data documentation and setup guide (data files not committed)
+│   ├── raw/                      # Downloaded KKBox CSVs
+│   ├── processed/                # Intermediate outputs
+│   └── synthetic/                # Simulated experiment data
+├── scripts/                      # Data download script
+├── sql/                          # SQL scripts for loading, cleaning and feature building
+├── eda/                          # Exploratory data analysis notebooks
+├── notebooks/                    # Analysis notebooks (churn, experiment, uplift, profit)
 ├── models/                       # Trained model artifacts and evaluation outputs
 ├── dashboard/                    # Power BI dashboard files and assets
 ├── reports/                      # Final written reports and summaries
@@ -147,9 +156,9 @@ Each folder contains its own `README.md` describing its intended contents and co
 
 ## Important Methodological Limitation
 
-NordHome is a **synthetic dataset**, and the randomized controlled experiment used in this project will be **simulated**, not collected from a real business. The experiment simulation is intended solely to demonstrate the analytical workflow — experiment design, statistical testing, treatment-effect estimation, and uplift modeling — under realistic assumptions.
+The customer, transaction, listening and churn data are **real** (KKBox, anonymised). KKBox never ran a retention-offer experiment in this data, however, so the randomized controlled experiment in this project will be **simulated on top of the real subscribers**: treatment assignment and the offer's effect are generated under documented assumptions (see [docs/simulation_assumptions.md](docs/simulation_assumptions.md)). The simulation is intended solely to demonstrate the analytical workflow — experiment design, statistical testing, treatment-effect estimation, and uplift modeling.
 
-**Results from this simulated experiment must not be interpreted as evidence of real-world causal impact.** They illustrate methodology, not a validated business outcome. Any real-world application of this workflow would require a genuine randomized experiment on actual customers.
+The churn prediction results reflect real subscriber behaviour. **Results from the simulated experiment must not be interpreted as evidence of real-world causal impact.** They illustrate methodology, not a validated business outcome. Any real-world application of this workflow would require a genuine randomized experiment on actual customers.
 
 ---
 
@@ -157,7 +166,8 @@ NordHome is a **synthetic dataset**, and the randomized controlled experiment us
 
 - [x] Define business problem and project scope
 - [x] Set up repository structure and documentation
-- [ ] Generate or source synthetic dataset and simulate experiment
+- [x] Source dataset (KKBox) and load it into PostgreSQL
+- [ ] Simulate the retention experiment
 - [ ] Data preparation and feature engineering
 - [ ] Exploratory data analysis and churn definition
 - [ ] Baseline churn prediction model

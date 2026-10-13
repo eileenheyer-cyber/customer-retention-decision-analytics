@@ -1,4 +1,4 @@
-# Project Proposal: NordHome Retention Analytics
+# Project Proposal: Customer Retention Decision Analytics
 
 **Status: Planned / In Progress.** This document describes the intended scope and design of the project. No analysis has been performed yet.
 
@@ -6,9 +6,9 @@
 
 ## Executive Summary
 
-NordHome Retention Analytics is a portfolio project designed to demonstrate an end-to-end, decision-oriented data science workflow applied to customer retention. Rather than stopping at a churn prediction model, the project extends into experimentation, treatment-effect estimation, uplift modeling, and expected-profit optimization, in order to answer a concrete business question: **which customers should receive a retention offer to maximize expected incremental profit?**
+Customer Retention Decision Analytics is a portfolio project designed to demonstrate an end-to-end, decision-oriented data science workflow applied to customer retention. Rather than stopping at a churn prediction model, the project extends into experimentation, treatment-effect estimation, uplift modeling, and expected-profit optimization, in order to answer a concrete business question: **which customers should receive a retention offer to maximize expected incremental profit?**
 
-The project uses NordHome, a synthetic retail dataset, and a simulated randomized controlled experiment, to illustrate methods that would typically be applied to real customer and experiment data in an industry setting.
+The project uses the KKBox Churn Prediction Challenge dataset (WSDM Cup 2018), real anonymised data from a music streaming subscription service, together with a randomized controlled experiment simulated on top of those real subscribers. Churn prediction is therefore built on real behaviour, while the experiment and uplift steps illustrate methods that would be applied to real experiment data in an industry setting.
 
 ---
 
@@ -66,7 +66,7 @@ Out of scope: production deployment, real-time scoring infrastructure, integrati
 ## Expected Outputs
 
 - Written documentation of business problem, experiment design, and methodology (this repository's `docs/` folder).
-- Cleaned, feature-engineered customer-level dataset (simulated).
+- Cleaned, feature-engineered customer-level dataset built from the KKBox data.
 - A trained and evaluated baseline churn model.
 - A statistical analysis report of the simulated experiment.
 - An uplift model with segment-level response estimates.
@@ -78,9 +78,9 @@ Out of scope: production deployment, real-time scoring infrastructure, integrati
 
 ## Risks and Limitations
 
-- **Synthetic data:** NordHome is a synthetic dataset. Patterns in the data may not reflect real customer behavior.
-- **Simulated experiment:** The randomized controlled experiment is simulated, not observed. It is intended to demonstrate correct experimental analysis methodology, not to provide evidence of a real causal effect.
-- **Model generalization:** Any model trained on synthetic or simulated data should not be assumed to generalize to a real production environment without revalidation on real data.
+- **Dataset scope:** KKBox data covers one music streaming service in Taiwan from 2015 to 2017. Churn patterns may not transfer to other markets, products or time periods.
+- **Simulated experiment:** KKBox never ran a retention-offer experiment in this data. The randomized controlled experiment is simulated on top of the real subscribers, not observed. It is intended to demonstrate correct experimental analysis methodology, not to provide evidence of a real causal effect.
+- **Model generalization:** The churn model is trained on real data, but uplift and profit results depend on the simulated offer effect and should not be assumed to hold in a real production environment without a genuine experiment.
 - **Uplift modeling difficulty:** Uplift models are inherently harder to validate than standard predictive models because ground-truth individual treatment effects are never directly observable, even with real data.
 
 These limitations are discussed further in [methodology.md](methodology.md) and reiterated in the final report once produced.

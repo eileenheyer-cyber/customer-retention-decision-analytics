@@ -18,7 +18,7 @@ All three windows will be explicitly documented once defined, and features will 
 
 ## Churn Definition
 
-Churn will be defined operationally (e.g., account cancellation, subscription lapse without renewal, or an extended period of inactivity, depending on what is available/simulated in the NordHome dataset). The exact definition will be documented in the EDA phase, along with justification for the chosen outcome window length.
+Churn follows the KKBox competition definition (`data/raw/WSDMChurnLabeller.scala`): a subscriber whose membership expires in the label month churns if they make no new subscription transaction within 30 days of the expiry date. The definition and its implications for the outcome window will be examined and documented in the EDA phase.
 
 ---
 
@@ -33,7 +33,7 @@ Churn will be defined operationally (e.g., account cancellation, subscription la
 
 ## Feature Engineering
 
-Planned customer-level features include (subject to what the synthetic dataset supports):
+Planned customer-level features include (subject to what the KKBox data supports):
 
 - Tenure and account age.
 - Recency, frequency, and monetary (RFM)-style purchase or usage behavior.

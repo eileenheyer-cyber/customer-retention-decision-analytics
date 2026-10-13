@@ -1,18 +1,18 @@
 # Simulation Assumptions
 
-**Status: Planned / In Progress.** This document will record the assumptions used to generate the synthetic NordHome dataset and simulate the retention experiment. No simulation has been run yet.
+**Status: Planned / In Progress.** This document will record the assumptions used to simulate the retention-offer experiment on top of the real KKBox subscribers. No simulation has been run yet.
 
-> **Important limitation:** All data in this project is synthetic. These assumptions are design choices, not estimates from real-world data.
+> **Important limitation:** The customer, transaction, listening and churn data are real (KKBox). Only the experiment is simulated: which subscribers receive the offer, and how the offer changes their churn probability. These assumptions are design choices, not estimates from a real experiment.
 
 ---
 
-## Customer Population
+## Eligible Population
 
-_To be defined._
+_To be defined._ Which real KKBox subscribers enter the simulated experiment, for example users whose subscription expires in the label month.
 
-## Churn Behaviour
+## Baseline Churn Behaviour
 
-_To be defined._
+_To be defined._ The control group's churn comes from the real KKBox labels; this section will document how that baseline is used.
 
 ## Treatment Effect and Response Types
 

@@ -2,13 +2,13 @@
 
 **Status: Planned / In Progress.** This document describes the *proposed design* of a randomized controlled experiment. The experiment has not yet been executed or simulated. Sample sizes, durations, and other numeric parameters below are placeholders to be calculated once baseline data assumptions are finalized — see the note at the end of this document.
 
-> **Important limitation:** This experiment will be simulated using the synthetic NordHome dataset. It is designed to demonstrate correct experimental design and analysis methodology. It is **not** a real experiment and must not be interpreted as evidence of a real-world causal effect.
+> **Important limitation:** This experiment will be simulated on top of the real KKBox subscribers; KKBox never ran a retention-offer experiment in this data. It is designed to demonstrate correct experimental design and analysis methodology. It is **not** a real experiment and must not be interpreted as evidence of a real-world causal effect.
 
 ---
 
 ## Target Population
 
-All active NordHome customers who are at risk of churn but still hold an active account at the start of the experiment window. The precise risk threshold (e.g., top N% by baseline churn score, or all customers above a minimum tenure) will be finalized during the data preparation phase.
+All active KKBox subscribers who are at risk of churn but still hold an active account at the start of the experiment window. The precise risk threshold (e.g., top N% by baseline churn score, or all customers above a minimum tenure) will be finalized during the data preparation phase.
 
 ---
 

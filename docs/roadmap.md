@@ -14,15 +14,15 @@
 
 ## Phase 2: Dataset and Experiment Simulation
 
-- [ ] Define the synthetic NordHome customer dataset schema
-- [ ] Generate synthetic customer-level data
+- [x] Select dataset (KKBox Churn Prediction Challenge, WSDM Cup 2018)
+- [x] Download the data with a reproducible script
 - [ ] Define the retention offer mechanic to be simulated
 - [ ] Simulate randomized treatment/control assignment
 - [ ] Simulate post-treatment outcomes consistent with the experiment design
 
 ## Phase 3: Data Preparation
 
-- [ ] Load simulated data into PostgreSQL
+- [x] Load raw KKBox data into PostgreSQL
 - [ ] Write SQL extraction/transformation scripts
 - [ ] Define observation, prediction, and outcome windows
 - [ ] Clean and validate data quality
